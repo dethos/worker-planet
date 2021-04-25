@@ -27,16 +27,22 @@ async function handleRequest(request) {
   if (path === '/') {
     let content = await WORKER_PLANET_STORE.get('html')
     response = new Response(content, {
-      headers: { 'content-type': 'text/html;charset=UTF-8' },
+      headers: {
+        'content-type': 'text/html;charset=UTF-8',
+        'Cache-Control': 'max-age=3600',
+      },
     })
   } else if (path === '/rss') {
     let content = await WORKER_PLANET_STORE.get('rss')
     response = new Response(content, {
-      headers: { 'content-type': 'application/rss+xml' }
+      headers: {
+        'content-type': 'application/rss+xml',
+        'Cache-Control': 'max-age=3600',
+      },
     })
-  // } else if (path === '/atom') {
-  //   let content = await WORKER_PLANET_STORE.get('atom')
-  //   response = new Response(content)
+    // } else if (path === '/atom') {
+    //   let content = await WORKER_PLANET_STORE.get('atom')
+    //   response = new Response(content)
   } else {
     return new Response('', { status: 404 })
   }

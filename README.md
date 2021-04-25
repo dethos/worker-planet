@@ -15,7 +15,7 @@ This ends up being specially useful for communities, in order to follow the work
 
 # How to deploy
 
-First you need to have [wrangler]() correctly setup on your machine. Then:
+First you need to have [wrangler](https://github.com/cloudflare/wrangler) correctly setup on your machine. Then:
 
 1. Clone this repository
 2. Create a `wrangler.toml` file based on the existing `wrangler.toml.example`
