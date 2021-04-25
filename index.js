@@ -24,12 +24,6 @@ async function handleRequest(request) {
 
   const path = new URL(request.url).pathname
 
-  //REMOVE LATER
-  if (path.includes('cron')) {
-    await handleScheduled(null)
-    return new Response('cron', { status: 201 })
-  }
-
   if (path === '/') {
     let content = await WORKER_PLANET_STORE.get('html')
     response = new Response(content, {
@@ -40,7 +34,7 @@ async function handleRequest(request) {
     response = new Response(content, {
       headers: { 'content-type': 'application/rss+xml' }
     })
-  // } else if (path === 'atom') {
+  // } else if (path === '/atom') {
   //   let content = await WORKER_PLANET_STORE.get('atom')
   //   response = new Response(content)
   } else {
