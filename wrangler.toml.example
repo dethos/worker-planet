@@ -1,0 +1,19 @@
+name = "worker-planet"
+type = "webpack"
+account_id = ""
+workers_dev = true
+route = ""
+zone_id = ""
+
+kv_namespaces = [
+    { binding = "WORKER_PLANET_STORE", id = "", preview_id = "" }
+]
+
+[vars]
+FEEDS = ""
+MAX_SIZE = 50
+TITLE = "ADD_YOUR_TITLE_HERE"
+DESCRIPTION = "ADD_YOUR_DESCRIPTION_HERE"
+
+[triggers]
+crons = ["0 */2 * * *"]
