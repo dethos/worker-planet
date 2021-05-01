@@ -19,6 +19,7 @@ async function handleRequest(request) {
   const cacheUrl = new URL(request.url)
   const cacheKey = new Request(cacheUrl.toString(), request)
   const cache = caches.default
+  const cacheMaxAge = CACHE_MAX_AGE || 3600
   let response = await cache.match(cacheKey)
   if (response) return response
 
@@ -29,7 +30,7 @@ async function handleRequest(request) {
     response = new Response(content, {
       headers: {
         'content-type': 'text/html;charset=UTF-8',
-        'Cache-Control': 'max-age=3600',
+        'Cache-Control': `max-age=${cacheMaxAge}`,
         'Content-Security-Policy':
           "script-src 'none'; style-src cdn.jsdelivr.net;",
       },
