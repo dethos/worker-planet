@@ -19,10 +19,18 @@ First you need to have [wrangler](https://github.com/cloudflare/wrangler) correc
 
 1. Clone this repository
 2. Create a `wrangler.toml` file based on the existing `wrangler.toml.example`
-3. Create KV namespaces and their ids to the `kv_namespaces` setting on `wrangler.toml`
+3. Create KV namespaces and add their ids to the `kv_namespaces` setting on `wrangler.toml`
 4. Add your `account_id` and customize all the `vars` in `wrangler.toml`. `FEEDS` should be
    a string of coma separated urls, to each of the RSS/ATOM sources that will be part of your planet.
 5. Run `wrangler publish`
+
+## Configuration variables
+
+**FEEDS** - list of sources used to fetch the planet's content (separate each url with a comma)
+**TITLE** - Name of your planet (included in the generated html page and RSS feed)
+**DESCRIPTION** - Free text to be included on the page (currently not used on the included template)
+**MAX_SIZE** - Number of posts/entries that will be included on the page/feed
+**CACHE_MAX_AGE** - To avoid hitting the KV store each time the content is fetched, the static content is cached. You should adjust this value to the frequency you pick for your cron. Defined in seconds (default: 3600)
 
 ## Customize the generated HTML
 
