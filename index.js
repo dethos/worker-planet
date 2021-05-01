@@ -113,8 +113,8 @@ async function fetchAndHydrate(feed) {
   let contentFeed = await parser.parseString(content)
 
   for (let item of contentFeed.items) {
-    item.source_title = feed.source_title
-    item.source_link = feed.link
+    item.source_title = contentFeed.title
+    item.source_link = contentFeed.link
   }
   console.log(
     `[fetchAndHydrate] Finished fetch feed: ${feed}. ${contentFeed.items.length} items gathered`,
