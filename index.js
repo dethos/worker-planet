@@ -30,6 +30,8 @@ async function handleRequest(request) {
       headers: {
         'content-type': 'text/html;charset=UTF-8',
         'Cache-Control': 'max-age=3600',
+        'Content-Security-Policy':
+          "script-src 'none'; style-src cdn.jsdelivr.net;",
       },
     })
   } else if (path === '/rss') {
@@ -158,5 +160,9 @@ function createFeed(items) {
  */
 function createHTML(items) {
   let template = Handlebars.templates['list_posts']
-  return template({ items: items, page_title: TITLE })
+  return template({
+    items: items,
+    page_title: TITLE,
+    page_description: DESCRIPTION,
+  })
 }

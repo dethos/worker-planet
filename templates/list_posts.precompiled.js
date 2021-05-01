@@ -188,7 +188,7 @@ templates['list_posts'] = template({
             })
           : helper),
       ) +
-      '</title>\n\n  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"\n    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">\n</head>\n\n<body>\n  <nav class="navbar navbar-expand-lg navbar-light bg-light">\n    <div class="container">\n      <a class="navbar-brand" href="#">' +
+      '</title>\n  <link rel="alternate" type="application/rss+xml" title="Planet RSS feed" href="/rss" />\n  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"\n    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">\n</head>\n\n<body>\n  <nav class="navbar navbar-expand-lg navbar-light bg-light">\n    <div class="container">\n      <a class="navbar-brand" href="#">' +
       alias4(
         ((helper =
           (helper =
