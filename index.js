@@ -130,8 +130,8 @@ function createFeed(items) {
   const feed = new Feed({
     title: TITLE,
     description: DESCRIPTION,
-    id: 'http://example.com/', // TODO
-    link: 'http://example.com/', // TODO
+    id: CUSTOM_URL,
+    link: CUSTOM_URL,
   })
 
   for (let item of items) {

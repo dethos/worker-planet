@@ -33,8 +33,8 @@ templates['list_posts'] = template({
               hash: {},
               data: data,
               loc: {
-                start: { line: 35, column: 44 },
-                end: { line: 35, column: 52 },
+                start: { line: 34, column: 44 },
+                end: { line: 34, column: 52 },
               },
             })
           : helper),
@@ -53,8 +53,8 @@ templates['list_posts'] = template({
               hash: {},
               data: data,
               loc: {
-                start: { line: 35, column: 54 },
-                end: { line: 35, column: 63 },
+                start: { line: 34, column: 54 },
+                end: { line: 34, column: 63 },
               },
             })
           : helper),
@@ -74,8 +74,8 @@ templates['list_posts'] = template({
               hash: {},
               data: data,
               loc: {
-                start: { line: 37, column: 27 },
-                end: { line: 37, column: 38 },
+                start: { line: 36, column: 27 },
+                end: { line: 36, column: 38 },
               },
             })
           : helper),
@@ -96,8 +96,8 @@ templates['list_posts'] = template({
               hash: {},
               data: data,
               loc: {
-                start: { line: 38, column: 38 },
-                end: { line: 38, column: 53 },
+                start: { line: 37, column: 38 },
+                end: { line: 37, column: 53 },
               },
             })
           : helper),
@@ -118,8 +118,8 @@ templates['list_posts'] = template({
               hash: {},
               data: data,
               loc: {
-                start: { line: 38, column: 55 },
-                end: { line: 38, column: 71 },
+                start: { line: 37, column: 55 },
+                end: { line: 37, column: 71 },
               },
             })
           : helper),
@@ -139,8 +139,8 @@ templates['list_posts'] = template({
               hash: {},
               data: data,
               loc: {
-                start: { line: 41, column: 12 },
-                end: { line: 41, column: 25 },
+                start: { line: 40, column: 12 },
+                end: { line: 40, column: 25 },
               },
             })
           : helper)) != null
@@ -231,7 +231,7 @@ templates['list_posts'] = template({
             })
           : helper),
       ) +
-      '" />\n  <link rel="alternate" type="application/rss+xml" title="Planet RSS feed" href="/rss" />\n  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"\n    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">\n</head>\n\n<body>\n  <nav class="navbar navbar-expand-lg navbar-light bg-light">\n    <div class="container-fluid">\n      <a class="navbar-brand" href="#">' +
+      '" />\n  <link rel="alternate" type="application/rss+xml" title="Planet RSS feed" href="/rss" />\n  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">\n</head>\n\n<body>\n  <nav class="navbar navbar-expand-lg navbar-light bg-light">\n    <div class="container-fluid">\n      <a class="navbar-brand" href="#">' +
       alias4(
         ((helper =
           (helper =
@@ -246,8 +246,8 @@ templates['list_posts'] = template({
               hash: {},
               data: data,
               loc: {
-                start: { line: 19, column: 39 },
-                end: { line: 19, column: 53 },
+                start: { line: 18, column: 39 },
+                end: { line: 18, column: 53 },
               },
             })
           : helper),
@@ -263,8 +263,8 @@ templates['list_posts'] = template({
           inverse: container.noop,
           data: data,
           loc: {
-            start: { line: 30, column: 4 },
-            end: { line: 46, column: 13 },
+            start: { line: 29, column: 4 },
+            end: { line: 45, column: 13 },
           },
         },
       )) != null
