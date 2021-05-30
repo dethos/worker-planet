@@ -8,8 +8,12 @@
   <title>{{page_title}}</title>
   <meta property="og:title" content="{{page_title}}" />
   <meta property="og:description" content="{{page_description}}" />
+  <meta http-equiv="Content-Security-Policy" content="script-src https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js; style-src https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css;">
   <link rel="alternate" type="application/rss+xml" title="Planet RSS feed" href="/rss" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+    integrity="sha256-PDJQdTN7dolQWDASIoBVrjkuOEaI137FI15sqI3Oxu8=" crossorigin="anonymous" />
 </head>
 
 <body>
@@ -18,13 +22,24 @@
       <a class="navbar-brand" href="#">{{page_title}}</a>
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/rss">
+            <i class="bi bi-rss" role="img" aria-label="RSS"></i> RSS Feed
+          </a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="https://github.com/dethos/worker-planet">
-            Source Code
+            <i class="bi bi-github" role="img" aria-label="GitHub"></i> Source Code
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" data-bs-toggle="offcanvas" data-bs-target="#aboutPanel" aria-controls="offcanvasRight" href="#">
+            <i class="bi bi-patch-question" role="img" aria-label="About"></i> About
           </a>
         </li>
       </ul>
     </div>
   </nav>
+
   <main class="container d-grid">
     {{#each items}}
     <div class="row p-2">
@@ -47,11 +62,29 @@
   <footer class="footer mt-auto py-3 bg-light">
     <div class="container-fluid">
       <p class="text-muted">
-        All rights belong to the original authors.
-        <a class="float-end" href="#">Back to top</a>
+        <span>All rights belong to the original authors.</span>
+        <span class="float-end"><a href="#">Back to top</a></span>
       </p>
     </div>
   </footer>
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="aboutPanel" aria-labelledby="aboutLabel">
+    <div class="offcanvas-header">
+      <h4 id="aboutLabel">About</h4>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <p>{{page_description}}</p>
+
+      <h5>Sources</h5>
+      <ul>
+        {{#each sources}}
+          <li><a href="{{link}}">{{name}}</a></li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 </body>
 
 </html>

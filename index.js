@@ -31,8 +31,6 @@ async function handleRequest(request) {
       headers: {
         'content-type': 'text/html;charset=UTF-8',
         'Cache-Control': `max-age=${cacheMaxAge}`,
-        'Content-Security-Policy':
-          "script-src 'none'; style-src cdn.jsdelivr.net;",
       },
     })
   } else if (path === '/rss') {
@@ -63,10 +61,12 @@ async function handleRequest(request) {
 async function handleScheduled(event) {
   let feeds = FEEDS.split(',')
   let content = []
+  let sources = []
   let items
   for (let url of feeds) {
     try {
       items = await fetchAndHydrate(url)
+      sources.push({ name: items[0].source_title, link: items[0].source_link })
     } catch (error) {
       console.log(`Failed to fetch ${url}`)
       console.log(error)
@@ -93,7 +93,7 @@ async function handleScheduled(event) {
 
   // Generate feed
   let feed = createFeed(content)
-  let html = createHTML(content)
+  let html = createHTML(content, sources)
   // Store
   await WORKER_PLANET_STORE.put('rss', feed.rss2())
   //await WORKER_PLANET_STORE.put('atom', feed.atom1())
@@ -127,6 +127,7 @@ async function fetchAndHydrate(feed) {
  * @param {Array} items
  */
 function createFeed(items) {
+  console.log(`[createFeed] start building the aggregated feed`)
   const feed = new Feed({
     title: TITLE,
     description: DESCRIPTION,
@@ -152,6 +153,7 @@ function createFeed(items) {
       date: new Date(item.isoDate),
     })
   }
+  console.log(`[createFeed] Finished building the aggregated feed`)
   return feed
 }
 /**
@@ -159,10 +161,12 @@ function createFeed(items) {
  * @param {*} items
  * @returns
  */
-function createHTML(items) {
+function createHTML(items, sources) {
+  console.log(`[createHTML] building the HTML document`)
   let template = Handlebars.templates['list_posts']
   return template({
     items: items,
+    sources: sources,
     page_title: TITLE,
     page_description: DESCRIPTION,
   })
