@@ -115,6 +115,9 @@ async function fetchAndHydrate(feed) {
   for (let item of contentFeed.items) {
     item.source_title = contentFeed.title
     item.source_link = contentFeed.link
+    if ('content:encoded' in item) {
+      item.content = item['content:encoded']
+    }
   }
   console.log(
     `[fetchAndHydrate] Finished fetch feed: ${feed}. ${contentFeed.items.length} items gathered`,

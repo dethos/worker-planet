@@ -33,8 +33,8 @@ templates['list_posts'] = template({
               hash: {},
               data: data,
               loc: {
-                start: { line: 49, column: 44 },
-                end: { line: 49, column: 52 },
+                start: { line: 61, column: 44 },
+                end: { line: 61, column: 52 },
               },
             })
           : helper),
@@ -53,8 +53,8 @@ templates['list_posts'] = template({
               hash: {},
               data: data,
               loc: {
-                start: { line: 49, column: 54 },
-                end: { line: 49, column: 63 },
+                start: { line: 61, column: 54 },
+                end: { line: 61, column: 63 },
               },
             })
           : helper),
@@ -74,8 +74,8 @@ templates['list_posts'] = template({
               hash: {},
               data: data,
               loc: {
-                start: { line: 51, column: 27 },
-                end: { line: 51, column: 38 },
+                start: { line: 63, column: 27 },
+                end: { line: 63, column: 38 },
               },
             })
           : helper),
@@ -96,8 +96,8 @@ templates['list_posts'] = template({
               hash: {},
               data: data,
               loc: {
-                start: { line: 52, column: 38 },
-                end: { line: 52, column: 53 },
+                start: { line: 64, column: 38 },
+                end: { line: 64, column: 53 },
               },
             })
           : helper),
@@ -118,8 +118,8 @@ templates['list_posts'] = template({
               hash: {},
               data: data,
               loc: {
-                start: { line: 52, column: 55 },
-                end: { line: 52, column: 71 },
+                start: { line: 64, column: 55 },
+                end: { line: 64, column: 71 },
               },
             })
           : helper),
@@ -139,8 +139,8 @@ templates['list_posts'] = template({
               hash: {},
               data: data,
               loc: {
-                start: { line: 55, column: 12 },
-                end: { line: 55, column: 25 },
+                start: { line: 67, column: 12 },
+                end: { line: 67, column: 25 },
               },
             })
           : helper)) != null
@@ -179,8 +179,8 @@ templates['list_posts'] = template({
               hash: {},
               data: data,
               loc: {
-                start: { line: 81, column: 23 },
-                end: { line: 81, column: 31 },
+                start: { line: 93, column: 23 },
+                end: { line: 93, column: 31 },
               },
             })
           : helper),
@@ -199,8 +199,8 @@ templates['list_posts'] = template({
               hash: {},
               data: data,
               loc: {
-                start: { line: 81, column: 33 },
-                end: { line: 81, column: 41 },
+                start: { line: 93, column: 33 },
+                end: { line: 93, column: 41 },
               },
             })
           : helper),
@@ -290,7 +290,7 @@ templates['list_posts'] = template({
             })
           : helper),
       ) +
-      '" />\n  <meta http-equiv="Content-Security-Policy" content="script-src https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js; style-src https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css;">\n  <link rel="alternate" type="application/rss+xml" title="Planet RSS feed" href="/rss" />\n  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"\n    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />\n  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"\n    integrity="sha256-PDJQdTN7dolQWDASIoBVrjkuOEaI137FI15sqI3Oxu8=" crossorigin="anonymous" />\n</head>\n\n<body>\n  <nav class="navbar navbar-expand-lg navbar-light bg-light">\n    <div class="container-fluid">\n      <a class="navbar-brand" href="#">' +
+      '" />\n  <meta http-equiv="Content-Security-Policy" content="script-src https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js; style-src https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css \'sha256-Rlrl8UtcuZXDdr9KU9SZlhcRnb8Epry8Jgy1xIoCOkg=\';">\n  <link rel="alternate" type="application/rss+xml" title="Planet RSS feed" href="/rss" />\n  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"\n    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />\n  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"\n    integrity="sha256-PDJQdTN7dolQWDASIoBVrjkuOEaI137FI15sqI3Oxu8=" crossorigin="anonymous" />\n  <style>\n    img {\n        width: 100% !important;\n        max-width:600px !important;\n        height: auto;\n    }\n    code {\n      display: block;\n      white-space: pre-wrap;\n      overflow-wrap: break-word;\n    }\n  </style>\n</head>\n\n<body>\n  <nav class="navbar navbar-expand-lg navbar-light bg-light">\n    <div class="container-fluid">\n      <a class="navbar-brand" href="#">' +
       alias4(
         ((helper =
           (helper =
@@ -305,8 +305,8 @@ templates['list_posts'] = template({
               hash: {},
               data: data,
               loc: {
-                start: { line: 22, column: 39 },
-                end: { line: 22, column: 53 },
+                start: { line: 34, column: 39 },
+                end: { line: 34, column: 53 },
               },
             })
           : helper),
@@ -322,8 +322,8 @@ templates['list_posts'] = template({
           inverse: container.noop,
           data: data,
           loc: {
-            start: { line: 44, column: 4 },
-            end: { line: 60, column: 13 },
+            start: { line: 56, column: 4 },
+            end: { line: 72, column: 13 },
           },
         },
       )) != null
@@ -345,8 +345,8 @@ templates['list_posts'] = template({
               hash: {},
               data: data,
               loc: {
-                start: { line: 76, column: 9 },
-                end: { line: 76, column: 29 },
+                start: { line: 88, column: 9 },
+                end: { line: 88, column: 29 },
               },
             })
           : helper),
@@ -362,8 +362,8 @@ templates['list_posts'] = template({
           inverse: container.noop,
           data: data,
           loc: {
-            start: { line: 80, column: 8 },
-            end: { line: 82, column: 17 },
+            start: { line: 92, column: 8 },
+            end: { line: 94, column: 17 },
           },
         },
       )) != null
