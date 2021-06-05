@@ -329,7 +329,7 @@ templates['list_posts'] = template({
       )) != null
         ? stack1
         : '') +
-      '  </main>\n  <footer class="footer mt-auto py-3 bg-light">\n    <div class="container-fluid">\n      <p class="text-muted">\n        <span>All rights belong to the original authors.</span>\n        <span class="float-end"><a href="#">Back to top</a></span>\n      </p>\n    </div>\n  </footer>\n  <div class="offcanvas offcanvas-end" tabindex="-1" id="aboutPanel" aria-labelledby="aboutLabel">\n    <div class="offcanvas-header">\n      <h4 id="aboutLabel">About</h4>\n      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>\n    </div>\n    <div class="offcanvas-body">\n      <p>' +
+      '  </main>\n  <footer class="footer mt-auto py-3 bg-light">\n    <div class="container-fluid">\n      <p class="text-muted">\n        <span>All rights belong to the original authors. Powered by <a href="https://github.com/dethos/worker-planet">worker-planet</a>.</span>\n        <span class="float-end"><a href="#">Back to top</a></span>\n      </p>\n    </div>\n  </footer>\n  <div class="offcanvas offcanvas-end" tabindex="-1" id="aboutPanel" aria-labelledby="aboutLabel">\n    <div class="offcanvas-header">\n      <h4 id="aboutLabel">About</h4>\n      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>\n    </div>\n    <div class="offcanvas-body">\n      <p>' +
       alias4(
         ((helper =
           (helper =
