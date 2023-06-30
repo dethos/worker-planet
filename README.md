@@ -15,14 +15,16 @@ This ends up being specially useful for communities, in order to follow the work
 
 # How to deploy
 
-First you need to have [wrangler](https://github.com/cloudflare/wrangler) correctly setup on your machine. Then:
-
 1. Clone this repository
-2. Create a `wrangler.toml` file based on the existing `wrangler.toml.example`
-3. Create KV namespaces and add their ids to the `kv_namespaces` setting on `wrangler.toml`
-4. Add your `account_id` and customize all the `vars` in `wrangler.toml`. `FEEDS` should be
+2. Install the project dependencies: `npm install`
+3. Create a `wrangler.toml` file based on the existing `wrangler.toml.example`
+4. Create KV namespaces and add their ids to the `kv_namespaces` setting on `wrangler.toml`
+5. Add your `account_id` and customize all the `vars` in `wrangler.toml`. `FEEDS` should be
    a string of coma separated urls, to each of the RSS/ATOM sources that will be part of your planet.
-5. Run `wrangler publish`
+6. Build the worker bundle: `npm run build`
+7. Deploy your new worker: `npm run deploy`
+
+**Note:** For the last step you might need to set the `CLOUDFLARE_API_TOKEN` environment variable.
 
 ## Configuration variables
 
@@ -35,10 +37,8 @@ First you need to have [wrangler](https://github.com/cloudflare/wrangler) correc
 ## Customize the generated HTML
 
 Each community has its own identity, so you should be able to easily customize the look and feel
-of the generated page. To do so, before publishing you can edit the `templates/list_posts.handlebars` file.
+of the generated page. To do so, before publishing you can edit the `templates/default.handlebars` file.
 
 After you should "precompile" that file using the following command:
 
-> \$ handlebars templates/list_posts.handlebars -f templates/list_posts.precompiled.js -c handlebars/runtime
-
-**Note:** You need to have handlebars installed "globally" for this step.
+> \$ npm run template -- templates/default.handlebars -f templates/default.precompiled.js
