@@ -21,7 +21,10 @@ This ends up being specially useful for communities, in order to follow the work
 4. Create KV namespaces and add their ids to the `kv_namespaces` setting on `wrangler.toml`
 5. Add your `account_id` and customize all the `vars` in `wrangler.toml`. `FEEDS` should be
    a string of coma separated urls, to each of the RSS/ATOM sources that will be part of your planet.
-6. Run `wrangler deploy`
+6. Build the worker bundle: `npm run build`
+7. Deploy your new worker: `npm run deploy`
+
+**Note:** For the last step you might need to set the `CLOUDFLARE_API_TOKEN` environment variable.
 
 ## Configuration variables
 

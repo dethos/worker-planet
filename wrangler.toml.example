@@ -1,5 +1,5 @@
 name = "worker-planet"
-main = "index.js"
+main = "./worker/script.js"
 compatibility_date = "2023-05-18"
 node_compat = true
 account_id = ""

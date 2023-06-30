@@ -5,9 +5,9 @@
   "description": "Generate a single feed of content from multiple RSS/Atom sources. Runs on Cloudflare Workers.",
   "main": "./index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "prettier --write '**/*.{js,css,json,md}'",
+    "format": "prettier --write '**/*.{js,css,json,md}' '!**/worker/*' '!**/templates/*'",
     "template": "handlebars -c handlebars/runtime",
+    "build": "webpack",
     "dev": "wrangler dev",
     "deploy": "wrangler deploy"
   },
@@ -15,7 +15,10 @@
   "license": "AGPL-3.0",
   "devDependencies": {
     "prettier": "^1.18.2",
-    "wrangler": "^3.1.1"
+    "webpack": "^4.46.0",
+    "webpack-cli": "^4.10.0",
+    "wrangler": "^3.1.1",
+    "wranglerjs-compat-webpack-plugin": "^0.0.6"
   },
   "dependencies": {
     "feed": "^4.2.2",
