@@ -1,7 +1,7 @@
 import Parser from 'rss-parser'
 import { Feed } from 'feed'
 import Handlebars from 'handlebars/runtime'
-import template from './templates/list_posts.precompiled'
+import template from './templates/default.precompiled'
 
 addEventListener('scheduled', event => {
   event.waitUntil(handleScheduled(event))
@@ -166,7 +166,7 @@ function createFeed(items) {
  */
 function createHTML(items, sources) {
   console.log(`[createHTML] building the HTML document`)
-  let template = Handlebars.templates['list_posts']
+  let template = Handlebars.templates['default']
   return template({
     items: items,
     sources: sources,

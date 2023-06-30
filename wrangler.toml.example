@@ -1,9 +1,9 @@
 name = "worker-planet"
-type = "webpack"
+main = "index.js"
+compatibility_date = "2023-05-18"
+node_compat = true
 account_id = ""
 workers_dev = true
-route = ""
-zone_id = ""
 
 kv_namespaces = [
     { binding = "WORKER_PLANET_STORE", id = "", preview_id = "" }
