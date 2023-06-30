@@ -41,4 +41,4 @@ of the generated page. To do so, before publishing you can edit the `templates/d
 
 After you should "precompile" that file using the following command:
 
-> \$ npm run compile -- templates/default.handlebars -f templates/default.precompiled.js
+> \$ npm run template -- templates/default.handlebars -f templates/default.precompiled.js
