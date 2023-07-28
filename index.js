@@ -2,11 +2,27 @@ import Parser from 'rss-parser'
 import { Feed } from 'feed'
 import Handlebars from 'handlebars/runtime'
 import template from './templates/default.precompiled'
+import * as striptags from 'striptags'
 
-addEventListener('scheduled', event => {
-  event.waitUntil(handleScheduled(event))
+/**
+ * Extra Handlerbars template helpers
+ */
+Handlebars.registerHelper('isRowElemN', function(index, rowItems, n, options) {
+  return index % rowItems == n ? options.fn(this) : options.inverse(this)
 })
 
+/**
+ * Handle CRON jobs
+ * Where information is gathered and HTML and RSS is generated.
+ */
+addEventListener('scheduled', event => {
+  event.waitUntil(handleScheduled())
+})
+
+/**
+ * Serve the existing generated elements.
+ * CACHE is used to speed up the operation.
+ */
 addEventListener('fetch', event => {
   event.respondWith(handleRequest(event.request))
 })
@@ -55,10 +71,8 @@ async function handleRequest(request) {
  * Fetch all source feeds and generate the aggregated content
  *
  * TODO implement a faster way to fetch several sources
- *
- * @param {*} event
  */
-async function handleScheduled(event) {
+async function handleScheduled() {
   let feeds = FEEDS.split(',')
   let content = []
   let sources = []
@@ -167,6 +181,15 @@ function createFeed(items) {
 function createHTML(items, sources) {
   console.log(`[createHTML] building the HTML document`)
   let template = Handlebars.templates['default']
+  let dateFormatter = new Intl.DateTimeFormat('pt-PT', { timeZone: 'UTC' })
+
+  for (let item of items) {
+    item.description = striptags(item.content).substring(0, 250) + '[...]'
+    item.formattedDate = item.pubDate
+      ? dateFormatter.format(new Date(item.pubDate))
+      : ''
+  }
+
   return template({
     items: items,
     sources: sources,

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{page_title}}</title>
+    <meta property="og:title" content="{{page_title}}" />
+    <meta property="og:description" content="{{page_description}}" />
+    {{!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self'; style-src https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css;" /> --}}
+    <link rel="alternate" type="application/rss+xml" title="Planet RSS feed" href="/rss" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+  </head>
+  <body>
+    <nav class="container">
+      <ul>
+        <li></li>
+      </ul>
+      <ul>
+        <li><a href="/rss">RSS</a></li>
+        <li><a href="https://github.com/dethos/worker-planet">Code</a></li>
+        <li><a href="#open" onclick="document.getElementById('sources').setAttribute('open', '');">Sources</a></li>
+      </ul>
+    </nav>
+    <main class="container-fluid">
+      <div class="grid">
+        <div class="container">
+          <hgroup>
+            <h1>{{page_title}}</h1>
+            <h3>{{page_description}}</h3>
+          </hgroup>
+        </div>
+      </div>
+      {{#each items}}
+        {{#isRowElemN @index 4 0 }}
+        <div class="grid">
+        {{/isRowElemN}}
+          <article>
+            <hgroup>
+              <h3>{{title}}</h2>
+              <small>{{formattedDate}}</small>
+            </hgroup>
+            <p>
+              {{{description}}}
+            </p>
+            <p>
+              <a href="{{link}}">More</a>
+            </p>
+          </article>
+        {{#isRowElemN @index 4 3}}
+        </div>
+        {{/isRowElemN}}
+      {{/each}}
+    </main>
+    <footer>
+      <div class="container">
+        <p>
+          All rights belong to the original authors. Powered by <a href="https://github.com/dethos/worker-planet">worker-planet</a>.
+        </p>
+      </div>
+    </footer>
+    <dialog id="sources" open>
+      <article>
+        <header>
+          <a href="#close" aria-label="Close" class="close" onclick="document.getElementById('sources').removeAttribute('open');"></a>
+          Sources
+        </header>
+        <p>The content of this page is fetched from the following sources:</p>
+        <p>
+          <ul>
+            {{#each sources}}
+              <li><a href="{{link}}">{{name}}</a></li>
+            {{/each}}
+          </ul>
+        </p>
+      </article>
+    </dialog>
+  </body>
+</html>
