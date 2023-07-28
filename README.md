@@ -37,8 +37,18 @@ This ends up being specially useful for communities, in order to follow the work
 ## Customize the generated HTML
 
 Each community has its own identity, so you should be able to easily customize the look and feel
-of the generated page. To do so, before publishing you can edit the `templates/default.handlebars` file.
+of the generated page. To do so, before publishing you can edit one of the existing templates in the `templates` folder.
 
-After you should "precompile" that file using the following command:
+After, you should "precompile" that file using the following command:
 
 > \$ npm run template -- templates/default.handlebars -f templates/default.precompiled.js
+
+If the template name you are using is different from `default`, you should change the following 2 lines in `index.js`:
+
+```javascript
+import template from './templates/default.precompiled'
+```
+
+```javascript
+let template = Handlebars.templates['default']
+```
