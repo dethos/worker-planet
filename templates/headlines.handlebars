@@ -7,7 +7,7 @@
     <title>{{page_title}}</title>
     <meta property="og:title" content="{{page_title}}" />
     <meta property="og:description" content="{{page_description}}" />
-    {{!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self'; style-src https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css;" /> --}}
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-hashes' 'sha256-2drSom6Fplo+OFvNUVKnb+wZyrq6v1lOEkVaexi/Fw4=' 'sha256-JeTyInHTbNelTT9AfPH8MBCkB4sU4yMQjoaIQNeLIZ8='; style-src https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css;" />
     <link rel="alternate" type="application/rss+xml" title="Planet RSS feed" href="/rss" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
   </head>
@@ -59,7 +59,7 @@
         </p>
       </div>
     </footer>
-    <dialog id="sources" open>
+    <dialog id="sources">
       <article>
         <header>
           <a href="#close" aria-label="Close" class="close" onclick="document.getElementById('sources').removeAttribute('open');"></a>

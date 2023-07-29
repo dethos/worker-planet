@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "worker-planet",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Generate a single feed of content from multiple RSS/Atom sources. Runs on Cloudflare Workers.",
   "main": "./index.js",
   "scripts": {
