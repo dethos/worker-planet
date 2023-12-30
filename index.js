@@ -174,7 +174,7 @@ function createFeed(items) {
   return feed
 }
 /**
- * Generete the HTML page with the aggregated contents
+ * Generate the HTML page with the aggregated contents
  * @param {*} items
  * @returns
  */
@@ -184,7 +184,8 @@ function createHTML(items, sources) {
   let dateFormatter = new Intl.DateTimeFormat('pt-PT', { timeZone: 'UTC' })
 
   for (let item of items) {
-    item.description = striptags(item.content).substring(0, 250) + '[...]'
+    let shortdescription = striptags(item.content).substring(0, 250)
+    item.description = shortdescription ? shortdescription + ' [...]' : ""
     item.formattedDate = item.pubDate
       ? dateFormatter.format(new Date(item.pubDate))
       : ''
