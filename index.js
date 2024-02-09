@@ -30,6 +30,7 @@ addEventListener('fetch', event => {
 /**
  * Deliver aggregated content according to the formats requested
  * @param {Request} request
+ * @returns Response
  */
 async function handleRequest(request) {
   const cacheUrl = new URL(request.url)
@@ -69,23 +70,30 @@ async function handleRequest(request) {
 
 /**
  * Fetch all source feeds and generate the aggregated content
- *
- * TODO implement a faster way to fetch several sources
  */
 async function handleScheduled() {
   let feeds = FEEDS.split(',')
   let content = []
   let sources = []
-  let items
+
+  let promises = []
   for (let url of feeds) {
-    try {
-      items = await fetchAndHydrate(url)
-      sources.push({ name: items[0].source_title, link: items[0].source_link })
-    } catch (error) {
-      console.log(`Failed to fetch ${url}`)
-      console.log(error)
+    promises.push(fetchAndHydrate(url))
+  }
+  const results = await Promise.allSettled(promises)
+
+  for (let [index, result] of results.entries()) {
+    if (result.status == 'fulfilled') {
+      let posts = result.value
+      let title = posts[0].source_title
+      let link = posts[0].source_link
+      let name = title != '' ? title : new URL(link).host
+      sources.push({ name, link })
+      content.push(...posts)
+    } else {
+      console.log(`Failed to fetch ${feeds[index]}`)
+      console.log(result.reason)
     }
-    content.push(...items)
   }
 
   //sort all the elements chronologically (recent first)
@@ -116,7 +124,8 @@ async function handleScheduled() {
 
 /**
  * Take a feed URL, fetch all items and attach source information
- * @param {Array} feeds
+ * @param {String} feed The URL of the feed to be fetched and parsed
+ * @returns Array containing all the feed items parsed by rss-parser
  */
 async function fetchAndHydrate(feed) {
   console.log(`[fetchAndHydrate] start to fetch feed: ${feed}`)
@@ -141,7 +150,8 @@ async function fetchAndHydrate(feed) {
 
 /**
  * Builds a feed object from the provided items
- * @param {Array} items
+ * @param {Array} items parsed by rss-parser
+ * @return Feed object created by feed
  */
 function createFeed(items) {
   console.log(`[createFeed] start building the aggregated feed`)
@@ -175,8 +185,8 @@ function createFeed(items) {
 }
 /**
  * Generate the HTML page with the aggregated contents
- * @param {*} items
- * @returns
+ * @param {Array} items parsed by rss-parser
+ * @returns String with HTML page containing the parsed contents
  */
 function createHTML(items, sources) {
   console.log(`[createHTML] building the HTML document`)
@@ -185,7 +195,7 @@ function createHTML(items, sources) {
 
   for (let item of items) {
     let shortdescription = striptags(item.content).substring(0, 250)
-    item.description = shortdescription ? shortdescription + ' [...]' : ""
+    item.description = shortdescription ? shortdescription + ' [...]' : ''
     item.formattedDate = item.pubDate
       ? dateFormatter.format(new Date(item.pubDate))
       : ''

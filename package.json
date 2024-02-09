@@ -8,7 +8,7 @@
     "format": "prettier --write '**/*.{js,css,json,md}' '!**/worker/*' '!**/templates/*'",
     "template": "handlebars -c handlebars/runtime",
     "build": "webpack",
-    "dev": "wrangler dev",
+    "dev": "webpack && wrangler dev",
     "deploy": "wrangler deploy"
   },
   "author": "Gonçalo Valério <gon@ovalerio.net>",
