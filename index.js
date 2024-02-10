@@ -55,12 +55,17 @@ async function handleRequest(request) {
     response = new Response(content, {
       headers: {
         'content-type': 'application/rss+xml',
-        'Cache-Control': 'max-age=3600',
+        'Cache-Control': `max-age=${cacheMaxAge}`,
       },
     })
-    // } else if (path === '/atom') {
-    //   let content = await WORKER_PLANET_STORE.get('atom')
-    //   response = new Response(content)
+  } else if (path === '/atom') {
+    let content = await WORKER_PLANET_STORE.get('atom')
+    response = new Response(content, {
+      headers: {
+        'content-type': 'application/atom+xml',
+        'Cache-Control': `max-age=${cacheMaxAge}`,
+      },
+    })
   } else {
     return new Response('', { status: 404 })
   }
@@ -118,7 +123,7 @@ async function handleScheduled() {
   let html = createHTML(content, sources)
   // Store
   await WORKER_PLANET_STORE.put('rss', feed.rss2())
-  //await WORKER_PLANET_STORE.put('atom', feed.atom1())
+  await WORKER_PLANET_STORE.put('atom', feed.atom1())
   await WORKER_PLANET_STORE.put('html', html)
 }
 
